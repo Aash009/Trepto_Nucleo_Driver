@@ -1,0 +1,1 @@
+add_rcm_test(pressure_sensor_unit SOURCES test_pressure_sensor.c LINK rcm_pressure_sensor LABEL unit)
