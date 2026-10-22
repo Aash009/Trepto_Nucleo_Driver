@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file      startup_stm32u575xx.s
   * @author    MCD Application Team
-  * @brief     STM32U575xx devices vector table GCC toolchain.
+  * @brief     STM32U585xx devices vector table GCC toolchain.
   *            This module performs:
   *                - Set the initial SP
   *                - Set the initial PC == Reset_Handler,

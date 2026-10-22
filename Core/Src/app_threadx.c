@@ -20,7 +20,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "app_threadx.h"
-#include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

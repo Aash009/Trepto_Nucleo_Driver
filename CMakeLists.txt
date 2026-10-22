@@ -45,11 +45,17 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    system/sensor_manager/src/sensor_manager.c
+    driver/peripherals/adc/src/adc.c
+    driver/devices/force_sensor/src/force_sensor.c
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
+    system/sensor_manager/inc
+    driver/peripherals/adc/inc
+    driver/devices/force_sensor/inc
 )
 
 # Add project symbols (macros)
