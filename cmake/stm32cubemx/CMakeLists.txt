@@ -7,7 +7,7 @@ set(MX_Defines_Syms
 	TX_SINGLE_MODE_NON_SECURE=1 
 	UX_INCLUDE_USER_DEFINE_FILE 
 	USE_HAL_DRIVER 
-	STM32U585xx
+	STM32U575xx
     $<$<CONFIG:Debug>:DEBUG>
 )
 
@@ -38,7 +38,7 @@ set(MX_Application_Src
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/stm32u5xx_hal_timebase_tim.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/sysmem.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/syscalls.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../startup_stm32u585xx.s
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../startup_stm32u575xx.s
 )
 
 # STM32 HAL/LL Drivers
