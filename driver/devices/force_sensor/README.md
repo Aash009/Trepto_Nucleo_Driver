@@ -1,12 +1,17 @@
-# force_sensor
+# Force sensor
 
-Status: design placeholder, excluded from compilation and verification counts.
-Software item: SI-P-01 Safe Delivery Core (SDC) (Class C per software_items.yaml).
-Build variants: TREPTOFLO, INSUFLO.
-Responsibility: Force channel acquisition through the AFE on the MAIN ADC.
-Hardware: HSFPAR304A (HAD Table 8) / HSFPAR004A (FAD Table 19) + INA333 AFE; ADC
-Allocation source: FAD Table 19
-Legacy (L496 project): Force_driver, port or rewrite. Clause 4.4 legacy assessment or re-development is required before any L496 code is copied (docs/LEGACY_PORTING_MAP.md).
-Open: Force sensor variant mismatch HSFPAR304A vs HSFPAR004A and INA333 gain annotation (EER findings).
-inc/: public API; src/: implementation; test/: unit verification.
-Requirements (SR-P-###), unit design (SU-P-###), timing and fault behaviour: TBD.
+Reads the AFE output through ADC1 channel 9 and reports raw counts and
+millivolts. Millivolts use the planned 1.8 V ADC full scale. Force conversion
+is intentionally not implemented until its calibration equation is defined.
+
+Before use, configure ADC1 for 12-bit single-ended conversion and PA4 as
+analog input in CubeMX. The application passes the generated `hadc1` handle to
+`sensor_manager_init()`. The sensor driver configures channel 9 and performs
+offset calibration. Do not access the ADC from another owner while sampling.
+
+The ThreadX manager samples every 10 kernel ticks and publishes the latest
+sample plus 100-sample window statistics. Confirm the ThreadX tick rate when
+selecting the final sample interval.
+
+Hardware references and force-sensor variant/gain questions remain documented
+in `reference/README.md`.

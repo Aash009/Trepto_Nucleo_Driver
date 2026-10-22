@@ -20,9 +20,11 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "app_threadx.h"
+#include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "sensor_manager.h"
 
 /* USER CODE END Includes */
 
@@ -63,6 +65,8 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
 
   /* USER CODE END App_ThreadX_MEM_POOL */
   /* USER CODE BEGIN App_ThreadX_Init */
+  extern ADC_HandleTypeDef hadc1;
+  ret = sensor_manager_init(&hadc1);
   /* USER CODE END App_ThreadX_Init */
 
   return ret;
